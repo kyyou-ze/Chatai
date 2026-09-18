@@ -26,9 +26,10 @@ env:
 jobs:
   unzip:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
+    permissions: 
+    contents: write
+    workflows: write
+  steps:
       - uses: actions/checkout@v4
 
       - name: Cek file zip ada
