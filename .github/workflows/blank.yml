@@ -18,7 +18,7 @@ on:
       zip_file:
         description: "Path file zip yang mau diekstrak (relatif dari root repo)"
         required: false
-        default: "VTuberApp.zip"
+        default: "personachat-ai.zip"
 
 env:
   ZIP_FILE: ${{ github.event.inputs.zip_file || 'VTuberApp.zip' }}
