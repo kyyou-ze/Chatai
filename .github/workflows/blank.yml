@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: write
-  workflows: write
 
 jobs:
   unzip:
@@ -30,10 +29,12 @@ jobs:
           fi
           echo "ZIP_FILE=$ZIP" >> $GITHUB_ENV
 
-      - name: Extract
+      - name: Extract (tanpa .github)
         run: |
           unzip -o "$ZIP_FILE" -d .
+          rm -rf .github/workflows/android-build.yml
           rm -f "$ZIP_FILE"
+          echo "Extract selesai, file workflow dari zip sudah dihapus biar gak bentrok"
 
       - name: Commit hasil
         uses: stefanzweifel/git-auto-commit-action@v5
